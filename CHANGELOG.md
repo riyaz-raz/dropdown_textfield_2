@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.0
+- Migrated to standalone material_ui package
+
 ## 1.2.0
 - 'WidgetStateProperty' not found - fixed
 

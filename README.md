@@ -2,6 +2,8 @@
 
 A `DropdownTextfield` is a Material Design `TextField`. The `DropDownButton` is a widget that can be used to select one unique value or multiple values from a set of options.
 
+> **Note:** `dropdown_textfield_2` is a fork of [`dropdown_textfield`](https://pub.dev/packages/dropdown_textfield).
+
 ## Key Features
 
 1. Searchable dropdown
