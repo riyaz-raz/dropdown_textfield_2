@@ -31,7 +31,7 @@ class MultiSelection extends StatefulWidget {
   final CheckBoxProperty? checkBoxProperty;
 
   @override
-  _MultiSelectionState createState() => _MultiSelectionState();
+  State<MultiSelection> createState() => _MultiSelectionState();
 }
 
 class _MultiSelectionState extends State<MultiSelection> {

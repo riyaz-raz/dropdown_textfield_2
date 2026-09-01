@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 class ToolTipWidget extends StatefulWidget {
-  const ToolTipWidget({Key? key, required this.msg}) : super(key: key);
+  const ToolTipWidget({super.key, required this.msg});
   final String msg;
 
   @override
@@ -25,7 +25,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget> {
     );
   }
 
-  toolTipDialogue({required BuildContext context, required String msg}) {
+  void toolTipDialogue({required BuildContext context, required String msg}) {
     showAnimatedAlertDialog(
       context: context,
       content: Text(msg),
@@ -47,7 +47,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget> {
     );
   }
 
-  showAnimatedAlertDialog({
+  void showAnimatedAlertDialog({
     required BuildContext context,
     required Widget content,
     required List<Widget> actions,
@@ -84,7 +84,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget> {
     );
 
     showGeneralDialog(
-      barrierColor: Colors.black.withOpacity(0.5),
+      barrierColor: Colors.black45,
       transitionBuilder: (context, a1, a2, widget) {
         return Transform.scale(
           scale: a1.value,
@@ -111,7 +111,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget> {
             Container(
               width: double.infinity,
               height: double.infinity,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.black54,
             ),
             Positioned.fill(
               child: Align(
@@ -182,7 +182,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget> {
     overlayState.insert(overlayEntry);
   }
 
-  closeOverlay() {
+  void closeOverlay() {
     overlayEntry.remove();
   }
 }

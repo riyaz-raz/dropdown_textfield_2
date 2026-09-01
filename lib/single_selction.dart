@@ -3,29 +3,29 @@ import 'package:material_ui/material_ui.dart';
 import 'dropdown_textfield.dart';
 
 class SingleSelection extends StatefulWidget {
-  const SingleSelection(
-      {Key? key,
-      required this.dropDownList,
-      required this.onChanged,
-      required this.height,
-      required this.enableSearch,
-      required this.searchHeight,
-      this.searchTextStyle,
-      required this.searchFocusNode,
-      required this.mainFocusNode,
-      this.searchKeyboardType,
-      required this.searchAutofocus,
-      this.searchShowCursor,
-      required this.mainController,
-      required this.autoSort,
-      required this.listTileHeight,
-      this.onSearchTap,
-      this.onSearchSubmit,
-      this.listTextStyle,
-      this.searchDecoration,
-      required this.listPadding,
-      this.clearIconProperty})
-      : super(key: key);
+  const SingleSelection({
+    super.key,
+    required this.dropDownList,
+    required this.onChanged,
+    required this.height,
+    required this.enableSearch,
+    required this.searchHeight,
+    this.searchTextStyle,
+    required this.searchFocusNode,
+    required this.mainFocusNode,
+    this.searchKeyboardType,
+    required this.searchAutofocus,
+    this.searchShowCursor,
+    required this.mainController,
+    required this.autoSort,
+    required this.listTileHeight,
+    this.onSearchTap,
+    this.onSearchSubmit,
+    this.listTextStyle,
+    this.searchDecoration,
+    required this.listPadding,
+    this.clearIconProperty,
+  });
   final List<DropDownValueModel> dropDownList;
   final ValueSetter onChanged;
   final double height;
@@ -56,14 +56,15 @@ class _SingleSelectionState extends State<SingleSelection> {
   late TextEditingController _searchCnt;
   late FocusScopeNode _focusScopeNode;
   late InputDecoration _inpDec;
-  onItemChanged(String value) {
+  void onItemChanged(String value) {
     setState(() {
       if (value.isEmpty) {
         newDropDownList = List.from(widget.dropDownList);
       } else {
         newDropDownList = widget.dropDownList
             .where(
-                (item) => item.name.toLowerCase().contains(value.toLowerCase()))
+              (item) => item.name.toLowerCase().contains(value.toLowerCase()),
+            )
             .toList();
       }
     });
@@ -154,27 +155,32 @@ class _SingleSelectionState extends State<SingleSelection> {
               itemCount: newDropDownList.length,
               itemBuilder: (BuildContext context, int index) {
                 return SizedBox(
-                  height: widget.listTileHeight +
+                  height:
+                      widget.listTileHeight +
                       widget.listPadding.top +
                       widget.listPadding.bottom,
                   child: Padding(
                     padding: EdgeInsets.only(
-                        right: 10,
-                        left: 10,
-                        bottom: widget.listPadding.bottom,
-                        top: widget.listPadding.top),
+                      right: 10,
+                      left: 10,
+                      bottom: widget.listPadding.bottom,
+                      top: widget.listPadding.top,
+                    ),
                     child: InkWell(
-                        onTap: () {
-                          widget.onChanged(newDropDownList[index]);
-                        },
-                        child: Row(
-                          children: [
-                            newDropDownList[index].prefixWidget ??
-                                const SizedBox.shrink(),
-                            Text(newDropDownList[index].name,
-                                style: widget.listTextStyle),
-                          ],
-                        )),
+                      onTap: () {
+                        widget.onChanged(newDropDownList[index]);
+                      },
+                      child: Row(
+                        children: [
+                          newDropDownList[index].prefixWidget ??
+                              const SizedBox.shrink(),
+                          Text(
+                            newDropDownList[index].name,
+                            style: widget.listTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 );
               },
