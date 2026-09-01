@@ -1,4 +1,4 @@
-import 'package:dropdown_textfield/dropdown_textfield.dart';
+import 'package:dropdown_textfield_2/dropdown_textfield.dart';
 import 'package:material_ui/material_ui.dart';
 
 void main() {
@@ -101,9 +101,9 @@ class _TestPageState extends State<TestPage> {
                   },
                   dropDownItemCount: 6,
                   dropDownList: const [
-                    DropDownValueModel(name: 'name1', value: "value1"),
+                    DropDownValueModel(name: 'NAME 1', value: "value1"),
                     DropDownValueModel(
-                        name: 'name2',
+                        name: 'NAME 2',
                         value: "value2",
                         toolTipMsg:
                             "DropDownButton is a widget that we can use to select one unique value from a set of values"),
