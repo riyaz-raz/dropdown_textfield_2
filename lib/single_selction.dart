@@ -154,18 +154,33 @@ class _SingleSelectionState extends State<SingleSelection> {
               padding: EdgeInsets.zero,
               itemCount: newDropDownList.length,
               itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  contentPadding: .zero,
-                  visualDensity: VisualDensity.compact,
-                  onTap: () {
-                    widget.onChanged(newDropDownList[index]);
-                  },
-                  leading:
-                      newDropDownList[index].prefixWidget ??
-                      const SizedBox.shrink(),
-                  title: Text(
-                    newDropDownList[index].name,
-                    style: widget.listTextStyle,
+                return SizedBox(
+                  height:
+                      widget.listTileHeight +
+                      widget.listPadding.top +
+                      widget.listPadding.bottom,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      right: 10,
+                      left: 10,
+                      bottom: widget.listPadding.bottom,
+                      top: widget.listPadding.top,
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        widget.onChanged(newDropDownList[index]);
+                      },
+                      child: Row(
+                        children: [
+                          newDropDownList[index].prefixWidget ??
+                              const SizedBox.shrink(),
+                          Text(
+                            newDropDownList[index].name,
+                            style: widget.listTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 );
               },

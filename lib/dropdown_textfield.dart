@@ -402,7 +402,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
   void updateFunction({DropDownTextField? oldWidget}) {
     Function eq = const DeepCollectionEquality().equals;
     _dropDownList = List.from(widget.dropDownList);
-    _listPadding = widget.listPadding ?? ListPadding();
+    _listPadding = widget.listPadding ?? ListPadding(top: 6, bottom: 6);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.isMultiSelection) {
         if (oldWidget != null && !eq(oldWidget.dropDownList, _dropDownList)) {
