@@ -171,6 +171,7 @@ class _SingleSelectionState extends State<SingleSelection> {
                         widget.onChanged(newDropDownList[index]);
                       },
                       child: Row(
+                        spacing: 8,
                         children: [
                           newDropDownList[index].prefixWidget ??
                               const SizedBox.shrink(),

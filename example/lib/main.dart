@@ -220,14 +220,14 @@ class _TestPageState extends State<TestPage> {
                     }
                   },
                   dropDownList: const [
-                    DropDownValueModel(name: 'name1', value: "value1"),
-                    DropDownValueModel(name: 'name2', value: "value2"),
-                    DropDownValueModel(name: 'name3', value: "value3"),
-                    DropDownValueModel(name: 'name4', value: "value4"),
-                    DropDownValueModel(name: 'name5', value: "value5"),
-                    DropDownValueModel(name: 'name6', value: "value6"),
-                    DropDownValueModel(name: 'name7', value: "value7"),
-                    DropDownValueModel(name: 'name8', value: "value8"),
+                    DropDownValueModel(name: 'name11', value: "value11"),
+                    DropDownValueModel(name: 'name21', value: "value21"),
+                    DropDownValueModel(name: 'name31', value: "value31"),
+                    DropDownValueModel(name: 'name41', value: "value41"),
+                    DropDownValueModel(name: 'name51', value: "value51"),
+                    DropDownValueModel(name: 'name61', value: "value61"),
+                    DropDownValueModel(name: 'name71', value: "value71"),
+                    DropDownValueModel(name: 'name81', value: "value81"),
                   ],
                   listTextStyle: const TextStyle(color: Colors.red),
                   dropDownItemCount: 8,
@@ -247,7 +247,7 @@ class _TestPageState extends State<TestPage> {
                 DropDownTextField(
                   // initialValue: "name4",
                   listSpace: 20,
-                  listPadding: ListPadding(top: 20),
+                  listPadding: ListPadding(top: 8),
                   enableSearch: true,
                   validator: (value) {
                     if (value == null) {

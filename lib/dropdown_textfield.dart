@@ -402,7 +402,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
   void updateFunction({DropDownTextField? oldWidget}) {
     Function eq = const DeepCollectionEquality().equals;
     _dropDownList = List.from(widget.dropDownList);
-    _listPadding = widget.listPadding ?? ListPadding(top: 6, bottom: 6);
+    _listPadding = widget.listPadding ?? ListPadding();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.isMultiSelection) {
         if (oldWidget != null && !eq(oldWidget.dropDownList, _dropDownList)) {
@@ -1046,7 +1046,7 @@ class MultiValueDropDownController extends ChangeNotifier {
 class ListPadding {
   double top;
   double bottom;
-  ListPadding({this.top = 15, this.bottom = 15});
+  ListPadding({this.top = 6, this.bottom = 6});
 }
 
 class KeyboardVisibilityBuilder extends StatefulWidget {
