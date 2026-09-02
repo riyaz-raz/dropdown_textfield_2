@@ -9,7 +9,7 @@ class ToolTipWidget extends StatefulWidget {
 }
 
 class _ToolTipWidgetState extends State<ToolTipWidget> {
-  late OverlayEntry overlayEntry;
+  OverlayEntry? overlayEntry;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -179,10 +179,19 @@ class _ToolTipWidgetState extends State<ToolTipWidget> {
         );
       },
     );
-    overlayState.insert(overlayEntry);
+    overlayState.insert(overlayEntry!);
+  }
+
+  @override
+  void dispose() {
+    closeOverlay();
+    super.dispose();
   }
 
   void closeOverlay() {
-    overlayEntry.remove();
+    if (overlayEntry != null && overlayEntry!.mounted) {
+      overlayEntry?.remove();
+      overlayEntry = null;
+    }
   }
 }

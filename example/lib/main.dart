@@ -75,7 +75,7 @@ class _TestPageState extends State<TestPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 50,
+                  height: 60,
                 ),
                 const Text(
                   "Single selection dropdown with search option",
@@ -121,7 +121,7 @@ class _TestPageState extends State<TestPage> {
                   onChanged: (val) {},
                 ),
                 const SizedBox(
-                  height: 500,
+                  height: 200,
                 ),
                 const Text(
                   "Single selection dropdown with search option",
@@ -160,7 +160,7 @@ class _TestPageState extends State<TestPage> {
                   onChanged: (val) {},
                 ),
                 const SizedBox(
-                  height: 500,
+                  height: 200,
                 ),
                 const Text(
                   "multi selection dropdown",
@@ -232,6 +232,34 @@ class _TestPageState extends State<TestPage> {
                   listTextStyle: const TextStyle(color: Colors.red),
                   dropDownItemCount: 8,
 
+                  onChanged: (val) {},
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                const Text(
+                  "Single selection dropdown with 2 items",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                DropDownTextField(
+                  // initialValue: "name4",
+                  listSpace: 20,
+                  enableSearch: true,
+                  validator: (value) {
+                    if (value == null) {
+                      return "Required field";
+                    } else {
+                      return null;
+                    }
+                  },
+                  dropDownList: const [
+                    DropDownValueModel(name: 'name111', value: "value11"),
+                    DropDownValueModel(name: 'name211', value: "value21"),
+                    // DropDownValueModel(name: 'name311', value: "value31"),
+                  ],
                   onChanged: (val) {},
                 ),
                 const SizedBox(

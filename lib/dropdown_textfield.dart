@@ -296,9 +296,10 @@ class _DropDownTextFieldState extends State<DropDownTextField>
   late TextDirection _currentDirection;
   late BoxDecoration? _boxDecoration;
   late EdgeInsets? _boxMargin;
-  GlobalKey overlayKey = GlobalKey();
+  late GlobalKey overlayKey;
   @override
   void initState() {
+    overlayKey = GlobalKey();
     _cnt = TextEditingController();
     _keyboardHeight = 450;
     _searchAutofocus = false;
@@ -504,7 +505,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
               : _dropDownList.length < _maxListItem
               ? _dropDownList.length * _listTileHeight
               : _listTileHeight * _maxListItem.toDouble()) +
-          10;
+          24;
     });
   }
 
@@ -518,6 +519,18 @@ class _DropDownTextFieldState extends State<DropDownTextField>
   void dispose() {
     if (widget.searchFocusNode == null) _searchFocusNode.dispose();
     if (widget.textFieldFocusNode == null) _textFieldFocusNode.dispose();
+    if (_entry != null && _entry!.mounted) {
+      _entry?.remove();
+      _entry = null;
+    }
+    if (_entry2 != null && _entry2!.mounted) {
+      _entry2?.remove();
+      _entry2 = null;
+    }
+    if (_barrierOverlay != null && _barrierOverlay!.mounted) {
+      _barrierOverlay?.remove();
+      _barrierOverlay = null;
+    }
     if (_controller.isAnimating) {
       _controller.stop();
     }

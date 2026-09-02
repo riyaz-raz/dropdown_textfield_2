@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.2
+- Fixed rendering issues.
+
 ## 1.4.1
 - Fixed the excessive padding on list items when no padding was specified.
 
